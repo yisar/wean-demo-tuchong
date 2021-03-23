@@ -1,0 +1,6 @@
+<view class="navbar">
+  <view class='title-container'>
+    <view class='title' wx:else="{{back}}">{{text}}</view>
+    <view wx:if="{{back}}" class="title" bindtap="backTo">{{"<"}}</view>
+  </view>
+</view>

@@ -1,0 +1,16 @@
+{
+  "name": "tuchong",
+  "version": "1.0.0",
+  "description": "```shell npm i wepack",
+  "main": "app.js",
+  "scripts": {
+    "start": "wean -e ./app.json -o ./dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.dev.sh.ctripcorp.com:changhaozhao/tuchong.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
