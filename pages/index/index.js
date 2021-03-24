@@ -30,7 +30,7 @@ Page({
   onLoad: function(options) {
     let that = this;
     wx.request({
-      url: '/tuchong/', //图虫的推荐 接口地址
+      url: 'https://api.tuchong.com/feed-app', //图虫的推荐 接口地址
       success(res) {
         //赋值给post_id变量
         post_id = res.data.feedList[res.data.feedList.length - 1].post_id;
