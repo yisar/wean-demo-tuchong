@@ -4,6 +4,7 @@
   "description": "```shell npm i wepack",
   "main": "app.js",
   "scripts": {
+    "build": "wean -e ./app.json -o ./docs/ -p https://yisar.github.io/wean-demo-tuchong/",
     "start": "wean -e ./app.json -o ./docs/"
   },
   "repository": {
