@@ -2,7 +2,7 @@
 App({
   onLaunch: function () {
     wx.navigateTo({
-      url: "/pages/index/index",
+      url: "./pages/index/index",
     })
   },
   globalData: {

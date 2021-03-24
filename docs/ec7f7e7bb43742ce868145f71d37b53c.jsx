@@ -171,7 +171,7 @@ const $4 = props => {
 };
 
 
-    window['berial-mhpepx'] = {
+    window['berial-eickbw'] = {
       async bootstrap({host}){
         const div = document.createElement('div');
         div.id = "root";
