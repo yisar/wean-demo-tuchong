@@ -1,8 +1,8 @@
 // pages/hot/hot.js
 //获取应用实例
-var $10$export$app = getApp(); //自定义导航条高度
+const app = getApp(); //自定义导航条高度
 
-var $10$export$navigationBarHeight = $10$export$app.statusBarHeight + 44 + 'px'; //定义获取的每一组数据的最后一个post_id
+const navigationBarHeight = app.statusBarHeight + 44 + 'px'; //定义获取的每一组数据的最后一个post_id
 
 Page({
   /**
@@ -11,7 +11,7 @@ Page({
   data: {
     //导航条标题
     navigationBarTitle: '图虫',
-    navigationBarHeight: $10$export$navigationBarHeight,
+    navigationBarHeight: navigationBarHeight,
     //是否有更多数据标志位
     more: true,
     //获取的数据
@@ -22,14 +22,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var $10$export$that = this;
+    let that = this;
     wx.request({
-      url: 'https://api.tuchong.com/feed-app',
+      url: '/tuchong/',
 
       //图虫的推荐 接口地址
       success(res) {
         //赋值给post_id变量
-        $10$export$that.setData({
+        that.setData({
           counts: res.data.counts,
           more: res.data.more,
           feedList: res.data.feedList
@@ -87,17 +87,17 @@ Page({
     console.log(event.currentTarget.dataset.src);
     console.log(event.currentTarget.dataset.images); //对传递过来的images对象进行提取
 
-    var $10$export$images = event.currentTarget.dataset.images;
-    var $10$export$imagesUrls = [];
+    let images = event.currentTarget.dataset.images;
+    let imagesUrls = [];
 
-    for (var $10$export$i = 0; $10$export$i < $10$export$images.length; $10$export$i++) {
-      $10$export$imagesUrls.push("https://photo.tuchong.com/" + $10$export$images[$10$export$i].user_id + "/f/" + $10$export$images[$10$export$i].img_id + ".jpg");
+    for (let i = 0; i < images.length; i++) {
+      imagesUrls.push("https://photo.tuchong.com/" + images[i].user_id + "/f/" + images[i].img_id + ".jpg");
     }
 
     wx.previewImage({
       current: event.currentTarget.dataset.src,
       // 当前显示图片的http链接
-      urls: $10$export$imagesUrls // 需要预览的图片http链接列表
+      urls: imagesUrls // 需要预览的图片http链接列表
 
     });
   },
@@ -107,20 +107,20 @@ Page({
    * 查看作者详情
    */
   viewSiteDetails: function (event) {
-    var $10$export$siteId = event.currentTarget.dataset.siteId;
-    var $10$export$siteIcon = event.currentTarget.dataset.siteIcon;
-    var $10$export$siteName = event.currentTarget.dataset.siteName;
-    var $10$export$siteDescription = event.currentTarget.dataset.siteDescription;
-    var $10$export$siteFollowers = event.currentTarget.dataset.siteFollowers;
-    console.log($10$export$siteFollowers); //打开新页面
+    let siteId = event.currentTarget.dataset.siteId;
+    let siteIcon = event.currentTarget.dataset.siteIcon;
+    let siteName = event.currentTarget.dataset.siteName;
+    let siteDescription = event.currentTarget.dataset.siteDescription;
+    let siteFollowers = event.currentTarget.dataset.siteFollowers;
+    console.log(siteFollowers); //打开新页面
 
     wx.navigateTo({
-      url: 'site/site?site_id=' + $10$export$siteId + '&site_followers=' + $10$export$siteFollowers + '&site_description=' + $10$export$siteDescription + '&site_name=' + $10$export$siteName + '&site_icon=' + $10$export$siteIcon
+      url: 'site/site?site_id=' + siteId + '&site_followers=' + siteFollowers + '&site_description=' + siteDescription + '&site_name=' + siteName + '&site_icon=' + siteIcon
     });
   }
 });
 
-var $17$export$app = getApp();
+const app = getApp();
 Component({
   properties: {
     text: {
@@ -137,8 +137,8 @@ Component({
     }
   },
   data: {
-    statusBarHeight: $17$export$app.statusBarHeight + 'px',
-    navigationBarHeight: $17$export$app.statusBarHeight + 44 + 'px'
+    statusBarHeight: app.statusBarHeight + 'px',
+    navigationBarHeight: app.statusBarHeight + 44 + 'px'
   },
   methods: {
     backHome: function () {

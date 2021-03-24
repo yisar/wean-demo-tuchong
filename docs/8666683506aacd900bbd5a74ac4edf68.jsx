@@ -119,7 +119,7 @@ const $3 = props => {
 };
 
 
-    window['berial-jrbntp'] = {
+    window['berial-etanbt'] = {
       async bootstrap({host}){
         const div = document.createElement('div');
         div.id = "root";
