@@ -1,8 +1,8 @@
 // pages/hot/hot.js
 //获取应用实例
-var $6$export$app = getApp(); //自定义导航条高度
+var $10$export$app = getApp(); //自定义导航条高度
 
-var $6$export$navigationBarHeight = $6$export$app.statusBarHeight + 44 + 'px'; //定义获取的每一组数据的最后一个post_id
+var $10$export$navigationBarHeight = $10$export$app.statusBarHeight + 44 + 'px'; //定义获取的每一组数据的最后一个post_id
 
 Page({
   /**
@@ -11,7 +11,7 @@ Page({
   data: {
     //导航条标题
     navigationBarTitle: '图虫',
-    navigationBarHeight: $6$export$navigationBarHeight,
+    navigationBarHeight: $10$export$navigationBarHeight,
     //是否有更多数据标志位
     more: true,
     //获取的数据
@@ -22,14 +22,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var $6$export$that = this;
+    var $10$export$that = this;
     wx.request({
       url: 'https://api.tuchong.com/feed-app',
 
       //图虫的推荐 接口地址
       success(res) {
         //赋值给post_id变量
-        $6$export$that.setData({
+        $10$export$that.setData({
           counts: res.data.counts,
           more: res.data.more,
           feedList: res.data.feedList
@@ -87,17 +87,17 @@ Page({
     console.log(event.currentTarget.dataset.src);
     console.log(event.currentTarget.dataset.images); //对传递过来的images对象进行提取
 
-    var $6$export$images = event.currentTarget.dataset.images;
-    var $6$export$imagesUrls = [];
+    var $10$export$images = event.currentTarget.dataset.images;
+    var $10$export$imagesUrls = [];
 
-    for (var $6$export$i = 0; $6$export$i < $6$export$images.length; $6$export$i++) {
-      $6$export$imagesUrls.push("https://photo.tuchong.com/" + $6$export$images[$6$export$i].user_id + "/f/" + $6$export$images[$6$export$i].img_id + ".jpg");
+    for (var $10$export$i = 0; $10$export$i < $10$export$images.length; $10$export$i++) {
+      $10$export$imagesUrls.push("https://photo.tuchong.com/" + $10$export$images[$10$export$i].user_id + "/f/" + $10$export$images[$10$export$i].img_id + ".jpg");
     }
 
     wx.previewImage({
       current: event.currentTarget.dataset.src,
       // 当前显示图片的http链接
-      urls: $6$export$imagesUrls // 需要预览的图片http链接列表
+      urls: $10$export$imagesUrls // 需要预览的图片http链接列表
 
     });
   },
@@ -107,20 +107,20 @@ Page({
    * 查看作者详情
    */
   viewSiteDetails: function (event) {
-    var $6$export$siteId = event.currentTarget.dataset.siteId;
-    var $6$export$siteIcon = event.currentTarget.dataset.siteIcon;
-    var $6$export$siteName = event.currentTarget.dataset.siteName;
-    var $6$export$siteDescription = event.currentTarget.dataset.siteDescription;
-    var $6$export$siteFollowers = event.currentTarget.dataset.siteFollowers;
-    console.log($6$export$siteFollowers); //打开新页面
+    var $10$export$siteId = event.currentTarget.dataset.siteId;
+    var $10$export$siteIcon = event.currentTarget.dataset.siteIcon;
+    var $10$export$siteName = event.currentTarget.dataset.siteName;
+    var $10$export$siteDescription = event.currentTarget.dataset.siteDescription;
+    var $10$export$siteFollowers = event.currentTarget.dataset.siteFollowers;
+    console.log($10$export$siteFollowers); //打开新页面
 
     wx.navigateTo({
-      url: 'site/site?site_id=' + $6$export$siteId + '&site_followers=' + $6$export$siteFollowers + '&site_description=' + $6$export$siteDescription + '&site_name=' + $6$export$siteName + '&site_icon=' + $6$export$siteIcon
+      url: 'site/site?site_id=' + $10$export$siteId + '&site_followers=' + $10$export$siteFollowers + '&site_description=' + $10$export$siteDescription + '&site_name=' + $10$export$siteName + '&site_icon=' + $10$export$siteIcon
     });
   }
 });
 
-var $14$export$app = getApp();
+var $17$export$app = getApp();
 Component({
   properties: {
     text: {
@@ -137,8 +137,8 @@ Component({
     }
   },
   data: {
-    statusBarHeight: $14$export$app.statusBarHeight + 'px',
-    navigationBarHeight: $14$export$app.statusBarHeight + 44 + 'px'
+    statusBarHeight: $17$export$app.statusBarHeight + 'px',
+    navigationBarHeight: $17$export$app.statusBarHeight + 44 + 'px'
   },
   methods: {
     backHome: function () {

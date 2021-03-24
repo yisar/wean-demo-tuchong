@@ -1,10 +1,10 @@
 // pages/index/site/site.js
 //获取应用实例
-var $10$export$app = getApp(); //自定义导航条高度
+var $6$export$app = getApp(); //自定义导航条高度
 
-var $10$export$navigationBarHeight = $10$export$app.statusBarHeight + 44 + 'px'; //数据页数
+var $6$export$navigationBarHeight = $6$export$app.statusBarHeight + 44 + 'px'; //数据页数
 
-var $10$export$page = 2;
+var $6$export$page = 2;
 Page({
   /**
    * 页面的初始数据
@@ -12,7 +12,7 @@ Page({
   data: {
     //导航条标题
     navigationBarTitle: '',
-    navigationBarHeight: $10$export$navigationBarHeight,
+    navigationBarHeight: $6$export$navigationBarHeight,
     //作品总数
     counts: 0,
     //是否有更多数据标志位
@@ -35,14 +35,14 @@ Page({
       siteFollowers: options.site_followers,
       siteDescription: options.site_description
     });
-    var $10$export$that = this;
+    var $6$export$that = this;
     wx.request({
       url: '/site/',
 
       //获取作者所有图文作品数据,
       success(res) {
         console.log(res.data);
-        $10$export$that.setData({
+        $6$export$that.setData({
           counts: res.data.counts,
           postList: res.data.post_list
         }); //停止下拉刷新动画
@@ -73,16 +73,16 @@ Page({
    */
   onUnload: function () {
     //重置页数标志位
-    $10$export$page = 2;
+    $6$export$page = 2;
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    var $10$export$that = this;
+    var $6$export$that = this;
     wx.request({
-      url: 'https://fengcao.tuchong.com/rest/2/sites/' + $10$export$that.data.siteId + '/posts?count=20&page=1&before_timestamp=0',
+      url: 'https://fengcao.tuchong.com/rest/2/sites/' + $6$export$that.data.siteId + '/posts?count=20&page=1&before_timestamp=0',
       //获取作者所有图文作品数据
       data: {
         x: '',
@@ -95,7 +95,7 @@ Page({
 
       success(res) {
         console.log(res.data);
-        $10$export$that.setData({
+        $6$export$that.setData({
           counts: res.data.counts,
           more: res.data.more,
           postList: res.data.post_list
@@ -103,7 +103,7 @@ Page({
 
         wx.stopPullDownRefresh(); //重置页数标志位
 
-        $10$export$page = 2;
+        $6$export$page = 2;
       }
 
     });
@@ -113,10 +113,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log($10$export$page);
-    var $10$export$that = this;
+    console.log($6$export$page);
+    var $6$export$that = this;
     wx.request({
-      url: 'https://fengcao.tuchong.com/rest/2/sites/' + $10$export$that.data.siteId + '/posts?count=20&page=' + $10$export$page + '&before_timestamp=0',
+      url: 'https://fengcao.tuchong.com/rest/2/sites/' + $6$export$that.data.siteId + '/posts?count=20&page=' + $6$export$page + '&before_timestamp=0',
       //获取作者所有图文作品数据
       data: {
         x: '',
@@ -128,15 +128,15 @@ Page({
       },
 
       success(res) {
-        var $10$export$arr = $10$export$that.data.postList;
-        $10$export$arr = $10$export$arr.concat(res.data.post_list);
-        console.log($10$export$arr);
-        $10$export$that.setData({
+        var $6$export$arr = $6$export$that.data.postList;
+        $6$export$arr = $6$export$arr.concat(res.data.post_list);
+        console.log($6$export$arr);
+        $6$export$that.setData({
           counts: res.data.counts,
           more: res.data.more,
-          postList: $10$export$arr
+          postList: $6$export$arr
         });
-        $10$export$page++; //停止下拉刷新动画
+        $6$export$page++; //停止下拉刷新动画
 
         wx.stopPullDownRefresh();
       }
@@ -157,23 +157,23 @@ Page({
     console.log(event.currentTarget.dataset.src);
     console.log(event.currentTarget.dataset.images); //对传递过来的images对象进行提取
 
-    var $10$export$images = event.currentTarget.dataset.images;
-    var $10$export$imagesUrls = [];
+    var $6$export$images = event.currentTarget.dataset.images;
+    var $6$export$imagesUrls = [];
 
-    for (var $10$export$i = 0; $10$export$i < $10$export$images.length; $10$export$i++) {
-      $10$export$imagesUrls.push("https://photo.tuchong.com/" + $10$export$images[$10$export$i].user_id + "/f/" + $10$export$images[$10$export$i].img_id + ".jpg");
+    for (var $6$export$i = 0; $6$export$i < $6$export$images.length; $6$export$i++) {
+      $6$export$imagesUrls.push("https://photo.tuchong.com/" + $6$export$images[$6$export$i].user_id + "/f/" + $6$export$images[$6$export$i].img_id + ".jpg");
     }
 
     wx.previewImage({
       current: event.currentTarget.dataset.src,
       // 当前显示图片的http链接
-      urls: $10$export$imagesUrls // 需要预览的图片http链接列表
+      urls: $6$export$imagesUrls // 需要预览的图片http链接列表
 
     });
   }
 });
 
-var $17$export$app = getApp();
+var $14$export$app = getApp();
 Component({
   properties: {
     text: {
@@ -190,8 +190,8 @@ Component({
     }
   },
   data: {
-    statusBarHeight: $17$export$app.statusBarHeight + 'px',
-    navigationBarHeight: $17$export$app.statusBarHeight + 44 + 'px'
+    statusBarHeight: $14$export$app.statusBarHeight + 'px',
+    navigationBarHeight: $14$export$app.statusBarHeight + 44 + 'px'
   },
   methods: {
     backHome: function () {
