@@ -24,7 +24,7 @@ Page({
   onLoad: function (options) {
     var $6$export$that = this;
     wx.request({
-      url: '/tuchong/',
+      url: 'https://api.tuchong.com/feed-app',
 
       //图虫的推荐 接口地址
       success(res) {

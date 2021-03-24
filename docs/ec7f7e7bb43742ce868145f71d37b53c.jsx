@@ -171,7 +171,7 @@ const $4 = props => {
 };
 
 
-    window['berial-eickbw'] = {
+    window['berial-rwydhb'] = {
       async bootstrap({host}){
         const div = document.createElement('div');
         div.id = "root";
