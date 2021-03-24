@@ -4,7 +4,7 @@
   "description": "```shell npm i wepack",
   "main": "app.js",
   "scripts": {
-    "start": "wean -e ./app.json -o ./dist/"
+    "start": "wean -e ./app.json -o ./doc/"
   },
   "repository": {
     "type": "git",

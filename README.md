@@ -4,5 +4,5 @@ A wean demo for tuchong.com
 ### Run
 ```js
 yarn add wean
-wean -e app.json -o ./dist/
+yarn start
 ```
